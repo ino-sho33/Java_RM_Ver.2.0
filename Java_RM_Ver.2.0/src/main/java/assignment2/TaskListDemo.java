@@ -16,7 +16,7 @@ public class TaskListDemo {
 		// 仮のタスクデータ（タイトル、期限、完了フラグ）
 		String[] taskTitles = {"書類作成", "ミーティング準備", "メール返信", "プログラム修正"};		// タスク名
 		String[] taskDeadlines = {"2025-03-01", "2025-03-02", "2025-03-05", "2025-03-10"};	// 期限日
-		boolean[] taskCompleted = {false, false, true, false};								// 完了：true・未完了：false
+		boolean[] taskCompleted = {false, false, true, false};	// 完了：true・未完了：false
 		
 		System.out.println("=== タスク一覧 ===");
 		for (int i = 0; i < taskTitles.length; i++) {
