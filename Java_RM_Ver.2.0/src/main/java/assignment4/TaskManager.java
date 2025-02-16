@@ -109,7 +109,8 @@ public class TaskManager {
 		// 各タスクの情報を表示するループ
 		for (int i = 0; i < tasks.size(); i++) {
 			Task t = tasks.get(i);
-			System.out.println((i + 1) + ". " + t.getTitle() + "（期限： " + t.getDeadline()
+			// タスクIDの取得方法を変更　(i + 1)→t.getId()
+			System.out.println(t.getId() + ". " + t.getTitle() + "（期限： " + t.getDeadline()
 				+ ", 完了： " + t.getCompleted() + ")");
 			System.out.println("~~~~~~~~~~~~~~~ タスク一覧 ~~~~~~~~~~~~~~~");
 		}
