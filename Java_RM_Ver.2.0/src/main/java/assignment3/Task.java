@@ -12,20 +12,37 @@ package assignment3;
  * */
 
 public class Task {
+	
+	//------------------------------------------------------------------------
+	//タスクID自動生成
+	//------------------------------------------------------------------------
+	/* 目的
+	 * タスク登録時に一意のIDを自動生成
+	 * コンストラクタでIDを割り当てる
+	 * */
+	private static int idCounter = 1;	// IDを一意にするための静的カウンタ
 	//--------------------------------------------------------
 	// フィールド
 	//--------------------------------------------------------
-	private String title;
-	private String deadline;
-	private boolean completed;
+	private int id;				//自動生成されるID
+	private String title;		// タスク名
+	private String deadline;	// 期限日
+	private boolean completed;	// 完了：true・未完了；false
 	
 	//--------------------------------------------------------
 	// コンストラクタ
 	//--------------------------------------------------------
 	public Task(String title, String deadline) {
+		this.id = idCounter++;
 		this.title = title;
 		this.deadline = deadline;
 		this.completed = false;
+	}
+	//--------------------------------------------------------
+	// idのゲッター
+	//--------------------------------------------------------
+	public int getId() {
+		return id;
 	}
 	
 	//--------------------------------------------------------
