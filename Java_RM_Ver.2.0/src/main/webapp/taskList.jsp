@@ -67,6 +67,14 @@
                     完了切替
                 </button>
                 
+                <!-- 編集ボタン（GETリクエストでeditTaskへ） -->
+                <form action="editTask" method="get" style="display:inline;">
+                	<input type="hidden" name="taskId" value="<%= t.getId() %>">
+                	<button type="submit" class="edit-btn">
+                		編集
+                	</button>
+                </form>
+               
                 <!-- 削除ボタン（GETリクエストでDeleteTaskServletにtaskIdを送る） -->
                 <form action="deleteTask" method="get" style="display:inline;">
                 	<input type="hidden" name="taskId" value="<%=t.getId() %>">

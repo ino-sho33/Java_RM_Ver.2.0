@@ -37,6 +37,14 @@ public class Task {
 		this.deadline = deadline;
 		this.completed = false;
 	}
+
+	// 更新データを作成するとき用（DBにINSERTする前提）
+	public Task(int id, String title, String deadline) {
+		this.id = id;
+		this.title = title;
+		this.deadline = deadline;
+		this.completed = false;
+	}
 	
 	// DBから読み込む時用のコンストラクタ
 	public Task(int id, String title, String deadline, boolean completed) {
@@ -102,7 +110,7 @@ public class Task {
 	//--------------------------------------------------------
 	public static void main(String[] args) {
 		// タスククラスのインスタンス生成
-		Task task = new Task("レポート提出", "2025-03-01");
+		Task task = new Task( 1, "レポート提出", "2025-03-01");
 		// タスククラスのタスク情報を表示するメソッド
 		task.printTaskInfo();
 		// タスククラスのタスクを完了にするメソッド

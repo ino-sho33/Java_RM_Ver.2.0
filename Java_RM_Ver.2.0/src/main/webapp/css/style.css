@@ -118,5 +118,50 @@ form button[type="submit"]:hover {
     background: #c82333;
 }
 
+/* 編集ボタン (一覧画面) */
+.edit-btn {
+    background-color: #FFD700 !important; /* ゴールド系の黄色 */
+    color: #000;              /* テキストを黒に */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.edit-btn:hover {
+    background-color: #FFC107 !important; /* もう少し明るい黄色 */
+}
+
+/* 更新ボタン (編集画面) */
+.update-btn {
+    background-color: #FFD700 !important;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-btn:hover {
+    background-color: #FFC107;
+}
+
+/* キャンセルボタン用 */
+form.cancel-btn {
+    background-color: orchid !important; 
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-left: 10px !important; /* 好きな値 */
+    margin-right: 0 !important;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
 
 

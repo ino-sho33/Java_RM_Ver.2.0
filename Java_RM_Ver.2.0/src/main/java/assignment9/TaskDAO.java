@@ -94,8 +94,11 @@ public class TaskDAO {
             pstmt.setInt(1, taskId);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    Task task = new Task(rs.getString("title"), rs.getString("deadline"));
-                    task.setCompleted(rs.getBoolean("completed"));
+                    Task task = new Task(
+                    		rs.getInt("id"),
+                    		rs.getString("title"), 
+                    		rs.getString("deadline"));
+                    		task.setCompleted(rs.getBoolean("completed"));
                     return task;
                 }
             }
