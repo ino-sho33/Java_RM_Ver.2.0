@@ -68,7 +68,7 @@ public class Task {
 	//--------------------------------------------------------
 	// completedのゲッターとセッター
 	//--------------------------------------------------------
-	public boolean getCompleted() {
+	public boolean isCompleted() {
 		return completed;
 	}
 	public void setCompleted(boolean completed) {

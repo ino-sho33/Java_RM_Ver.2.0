@@ -36,7 +36,7 @@ public class PersonalTask extends Task{
 		System.out.println("[個人用]タスクID： " + getId()
 				+ ",タイトル： " + getTitle()
 				+ ",期限： " + getDeadline()
-				+ ",完了： " + getCompleted()
+				+ ",完了： " + isCompleted()
 				+ ",メモ： " + note);
 	}
 

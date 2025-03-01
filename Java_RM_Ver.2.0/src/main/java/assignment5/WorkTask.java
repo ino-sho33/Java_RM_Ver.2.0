@@ -35,7 +35,7 @@ public class WorkTask extends Task{
 		System.out.println("[仕事用]タスクID： " + getId()
 				+ ",タイトル： " + getTitle()
 				+ ",期限： " + getDeadline()
-				+ ",完了： " + getCompleted()
+				+ ",完了： " + isCompleted()
 				+ ",プロジェクト： " + projectName);
 	}
 }

@@ -111,7 +111,7 @@ public class TaskManager {
 			Task t = tasks.get(i);
 			// タスクIDの取得方法を変更　(i + 1)→t.getId()
 			System.out.println(t.getId() + ". " + t.getTitle() + "（期限： " + t.getDeadline()
-				+ ", 完了： " + t.getCompleted() + ")");
+				+ ", 完了： " + t.isCompleted() + ")");
 			System.out.println("~~~~~~~~~~~~~~~ タスク一覧 ~~~~~~~~~~~~~~~");
 		}
 	}
