@@ -32,7 +32,36 @@ public class TaskDAO {
             throw new RuntimeException("❌ JDBC Driver not found!", e);
         }
     }
+    
+    /**
+     * 全タスクを取得するメソッド (ORDER BYなし、すべてのレコードを返す)
+     */
+    public List<Task> getAllTasks() {
+        List<Task> tasks = new ArrayList<>();
+        String sql = "SELECT id, title, deadline, completed, category, user_id FROM tasks";
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASS);
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
 
+            while (rs.next()) {
+                // DBから読み込む時用のコンストラクタ
+                Task task = new Task(
+                    rs.getInt("id"),
+                    rs.getString("title"),
+                    rs.getString("deadline"),
+                    rs.getBoolean("completed")
+                );
+                // あるいは setCompleted() で再度上書きする
+                task.setCompleted(rs.getBoolean("completed"));
+                tasks.add(task);
+            }
+            System.out.println("✅ 全タスク取得成功: " + tasks.size() + "件");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tasks;
+    }
+    
     /**
      * タスクをデータベースに追加する。
      */
@@ -44,7 +73,7 @@ public class TaskDAO {
             pstmt.setString(1, task.getTitle());
             pstmt.setString(2, task.getDeadline());
             pstmt.setBoolean(3, task.isCompleted());
-            pstmt.setString(4, "general");
+            pstmt.setString(4, "Personal");
             pstmt.setInt(5, userId);
 
             pstmt.executeUpdate();

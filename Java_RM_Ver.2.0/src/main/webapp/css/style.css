@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+
+/* ベースリセット */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* タスク追加フォーム */
+form.add-task-form {
+    display: inline-block;
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+form.add-task-form label {
+    display: block;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+form.add-task-form input[type="text"],
+form.add-task-form input[type="date"] {
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 8px;
+}
+
+form.add-task-form button {
+    margin-top: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form.add-task-form button:hover {
+    background: #0056b3;
+}
+
+hr {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+/* タスク一覧テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+table th,
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background: #f3f4f6;
+    font-weight: 600;
+}
+
+tr:hover td {
+    background: skyblue;
+}
+
+tr.completed-row td {
+	background-color: gray !important; /* グレーっぽい色に */
+}
+
+
+
+/* ボタンの共通デザイン */
+button {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+button:hover {
+    background: #43a047;
+}
+
+/* 削除ボタンは赤色系に */
+form button[type="submit"] {
+    background: #dc3545;
+    margin: 0 0 0 6px; /* ボタン間の余白 */
+}
+
+form button[type="submit"]:hover {
+    background: #c82333;
+}
+
+
+
