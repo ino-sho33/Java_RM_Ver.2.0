@@ -1,0 +1,26 @@
+# Eclipseの環境依存ファイル
+.metadata/
+.settings/
+.classpath
+.project
+
+# Tomcatの自動生成ファイル
+Servers/
+Servers/**/server.xml
+Servers/**/catalina.policy
+Servers/**/catalina.properties
+Servers/**/context.xml
+Servers/**/tomcat-users.xml
+Servers/**/web.xml
+
+# ビルドディレクトリ
+target/
+build/
+
+# macOS の不要ファイル
+.DS_Store
+
+# OS の不要ファイル
+Thumbs.db
+$RECYCLE.BIN/
+*~
