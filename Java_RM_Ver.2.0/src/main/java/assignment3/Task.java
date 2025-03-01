@@ -32,12 +32,21 @@ public class Task {
 	//--------------------------------------------------------
 	// コンストラクタ
 	//--------------------------------------------------------
+	// 新しいタスクを作成するとき用（DBにINSERTする前提）
 	public Task(String title, String deadline) {
-		this.id = idCounter++;
 		this.title = title;
 		this.deadline = deadline;
 		this.completed = false;
 	}
+	
+	// DBから読み込む時用のコンストラクタ
+	public Task(int id, String title, String deadline, boolean completed) {
+		this.id = id;
+		this.title = title;
+		this.deadline = deadline;
+		this.completed = completed;
+	}
+	
 	//--------------------------------------------------------
 	// idのゲッター
 	//--------------------------------------------------------

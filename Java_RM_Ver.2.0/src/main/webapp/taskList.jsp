@@ -8,21 +8,19 @@
     <title>タスク一覧</title>
     <script>
     function toggleCompletion(taskId, currentStatus) {
-        // 非同期で完了状態を切り替える
-        var newStatus = !currentStatus;
+        var newStatus = currentStatus ? 0 : 1; // boolean → int に変換 (MySQL用)
 
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "updateTask", true); // /updateTask はServletのURLパターン
+        xhr.open("POST", "updateTask", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                // レスポンスを受け取って、ページをリロードするなどの処理
                 alert("タスクの完了状態を更新しました。");
                 location.reload();
             }
         };
-        xhr.send("taskId=" + taskId + "&completed=" + newStatus);
+        xhr.send("taskId=" + encodeURIComponent(taskId) + "&completed=" + encodeURIComponent(newStatus));
     }
     </script>
 </head>

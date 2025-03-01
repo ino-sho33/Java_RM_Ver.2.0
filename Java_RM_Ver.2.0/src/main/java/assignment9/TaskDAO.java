@@ -121,8 +121,13 @@ public class TaskDAO {
 
             pstmt.setBoolean(1, completed);
             pstmt.setInt(2, taskId);
-            pstmt.executeUpdate();
-            System.out.println("✅ タスク完了状態更新: ID " + taskId + " -> " + completed);
+            int rowsUpdated = pstmt.executeUpdate();
+
+            if (rowsUpdated == 0) {
+                System.out.println("⚠ タスク更新失敗: ID " + taskId + " が見つかりません");
+            } else {
+                System.out.println("✅ タスク更新成功: ID " + taskId + " を " + completed + " に変更");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -139,7 +144,7 @@ public class TaskDAO {
              ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
-                Task task = new Task(rs.getString("title"), rs.getString("deadline"));
+                Task task = new Task(rs.getInt("id"), rs.getString("title"), rs.getString("deadline"), rs.getBoolean("completed"));
                 task.setCompleted(rs.getBoolean("completed"));
                 tasks.add(task);
             }

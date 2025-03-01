@@ -11,28 +11,21 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/updateTask")
 public class UpdateTaskServlet extends HttpServlet {
-	
-	private TaskDAO taskDAO = new TaskDAO();
-	
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException {
-		// Ajaxから送信されたタスクIDと完了状態を取得
-		String taskIdStr = request.getParameter("taskId");
-		String completedStr = request.getParameter("completed");
-		
-		if (taskIdStr != null && completedStr != null) {
-			int taskId = Integer.parseInt(taskIdStr);
-			boolean completed = Boolean.parseBoolean(completedStr);
-			
-			// DB更新
-			taskDAO.updateTaskCompletion(taskId, completed);
-			
-			// レスポンスとして成功メッセージを返す
-			response.setContentType("text/plain; charset=UTF-8");
-			response.getWriter().write("更新成功");
-		} else {
-			response.sendError(HttpServletResponse.SC_BAD_REQUEST, "パラメータが不足しています。");
-		}
-	}
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int taskId = Integer.parseInt(request.getParameter("taskId"));
+        boolean completed = request.getParameter("completed").equals("1"); // 0 or 1 を boolean に変換
+
+        System.out.println("🔹 受け取ったtaskId: " + taskId);
+        System.out.println("🔹 受け取ったcompleted: " + completed);
+
+        TaskDAO dao = new TaskDAO();
+        dao.updateTaskCompletion(taskId, completed);
+
+        response.setContentType("text/plain");
+        response.getWriter().write("success");
+    }
 }
